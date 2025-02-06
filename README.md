@@ -255,7 +255,7 @@ Operations
 ```
 The program:
 
-- Passes all 13 tests (or lose 5% per missed test).
+- Passes all 17 tests (or lose 5% per missed test).
 
 ### Submitting
 
