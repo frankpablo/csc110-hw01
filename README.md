@@ -4,7 +4,6 @@ title: |
   CSC110 Intro to CS through programming\
   Homework 01
 subtitle: |
-  **Syllabus**\
   Spring 2025
 geometry: margin=2cm 
 header-includes: |
