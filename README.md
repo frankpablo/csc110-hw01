@@ -204,7 +204,28 @@ The Python program has a a header section you should fill in (replacing the plac
 comments indicating where to add your code. Remember, “comments”... are text that do not get executed.
 
 
-### Tests and checking your work
+## Expected Output
+
+This is what the output should look like:
+
+```
+Part 1: x = 27
+Part 1: y = 1
+Part 1: a = 1.5
+Part 1: b = 7
+Part 1: c = -1
+Part 1: result = 3.0
+Part 2: x = 5
+Part 2: y = -3
+Part 2: result = 2025
+Part 3: a = 100
+Part 3: b = 13
+Part 3: result = 7
+Part 4: result = 9
+```
+
+
+## Tests and checking your work
 
 
 In addition to the hw01.py file, where you will make edits to complete the homework, you might see additional python files called test_&lt;something&gt;.py. 
@@ -218,6 +239,7 @@ To run the tests, there are two things you can do:
   ```
   pytest -s -v
   ``` 
+
 
 ### Grading criteria:
 
@@ -240,6 +262,7 @@ The program:
 
 
 I will collect all of your hw01 directory files at the due date/time so make sure it is complete and running by then.
+
 
 
 ### Interpreting Test output
@@ -315,4 +338,3 @@ E       AssertionError: Tip: Did you assign the value of result2 correctly?
 E       assert 2026 == 2025
 ```
 As you can see, these two are related... your calculation for result2 is off. Once you fix that, you should pass all tests.
-
