@@ -106,7 +106,7 @@ Note that you do not modify the initial assignments at the top, where all variab
 
 Then, you need to write an arithmetic expression, in python so you obtain the following:
 
-$result2 = x^2y^2$
+$result2 = x^2y^4$
 
 
 
