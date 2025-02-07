@@ -66,7 +66,7 @@ Note that you do not modify the initial assignments at the top, where all variab
 
 Then, you need to write an arithmetic expression, in python so you obtain the following:
 
-$result1 = \frac{3x-9y}{2a(b-9)}$
+$result1 = \frac{3x-9y}{2a(b-c)}$
 
 At the end, the print statement should print:
 
