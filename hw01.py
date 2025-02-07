@@ -22,7 +22,8 @@ result5 = 0
 # Part 1: Basic Operations
 # =============================================
 # Your code for part 1 under this line and before the print statements
-
+x = 27
+y=1
 print("Part 1: x =",x)
 print("Part 1: y =",y)
 print("Part 1: a =",a)
