@@ -67,19 +67,24 @@ Overwrite the required variables so that you complete the following steps (in py
   * assign 7 to a variable named b
   * assign -1 to a variable named c
 
-Note that you do not modify the initial assignments at the top, where all variables are initialized with zeros. Instead you need to overwrite their values with the ones indicated above.
+Note that you do not modify the initial assignments at the top, where all variables are initialized with zeros. Instead you need to add new assignments where you overwrite their values with the ones indicated above.
 
 Then, you need to write an arithmetic expression, in python so you obtain the following:
 
 $result1 = \frac{3x-9y}{2a(b-c)}$
 
-At the end, the print statement should print:
+At the end, you need to add print statements so that the following is printed:
 
 ```
+Part 1: x = 27
+Part 1: y = 1
+Part 1: a = 1.5
+Part 1: b = 7
+Part 1: c = -1
 Part 1: result = 3.0
 ```
 
-Do not just assign the value of 3.0 directly to result1!
+Do not just assign the value of 3.0 directly to result1, make sure the expression results in 3.0
 
 There are tests in the test section to check if you did this correctly (more on tests at the end of these instructions)
 
@@ -117,7 +122,11 @@ $result2 = x^2y^4$
 
 At the end, the print statement should print:
 
+At the end, you need to add print statements so that the following is printed (after the previous part's printouts):
+
 ```
+Part 2: x = 5
+Part 2: y = -3
 Part 2: result = 2025
 ```
 
@@ -154,9 +163,11 @@ Then, you need to write an arithmetic expression, in python so you obtain the fo
 $result3 =$ the number of whole (integer) treats that each dog gets
 
 
-At the end, the print statement should print:
+At the end, you need to add print statements so that the following is printed (after the previous part's printouts):
 
 ```
+Part 3: a = 100
+Part 3: b = 13
 Part 3: result = 7
 ```
 
@@ -166,7 +177,6 @@ There are tests in the test section to check if you did this correctly (more on 
 
 ----
 
-\newpage
 
 ## Part 4
 
@@ -193,11 +203,12 @@ number of treats.
 Note : There is no need to reassign a and b, we’ll use the previous values (from part 3)
 Hint : Use Modulo!
 
-At the end, the print statement should print:
+At the end, you need to add print statements so that the following is printed (after the previous part's printouts):
 
 ```
 Part 4: result = 9
 ```
+
 Do not just assign the value of 9 directly to result4!
 
 There are tests in the test section to check if you did this correctly (more on tests at the end of these instructions)
@@ -209,8 +220,10 @@ comments indicating where to add your code. Remember, “comments”... are text
 
 
 ## Expected Output
+You execute your program in Thonny or on the terminal.
+In the terminal, you can run it with: `python3.13 hw01.py`
 
-This is what the output should look like:
+This is what the output should look like when you execute your program:
 
 ```
 Part 1: x = 27
@@ -238,19 +251,14 @@ These files are provided so you can see how many tests you have passed so far. I
 
 To run the tests, you run a special python module called pytest. It is explained in the section: **Testing**.
 
+
 ### Grading criteria:
 
-```
-General
-```
 The submission:
 
 - runs without syntax errors (or -50%)
 - adds a few small but informative comments (or -10%)
 
-```
-Operations
-```
 The program:
 
 - Passes all 13 tests (or lose 5% per missed test).
@@ -362,7 +370,7 @@ test_hw01.py::test4_result4_printout FAILED
 
 ```
 
-To see how the test system helps, it;s a good idea to read on and look at the output for each specific test.
+To see how the test system helps, its a good idea to read on and look at the output for each specific test.
 
 Here is the output for the section related to the test called `test1_x_printout `
 
