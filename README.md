@@ -20,17 +20,18 @@ output:
 ## Variables and Operations
 
 ```
-Due: By next Friday, Midnight
+Due: By next Friday, BEFORE CLASS
 ```
 _Note: Homework Assignment 1 should be completed individually._
 
 ## Instructions
 
-Follow the instructions for parts 1 through 4. Note that at the end of the instructions there is a section reminding
+Read the instructions for parts 1 through 4. Note that at the end of the instructions there is a section reminding
 you where stuff is and how to run the tests.
 
+Then, you can start working on the Homework.
 
-READ all instructions before starting!
+
 Notes :
 
 - All your editing will happen in the file called hw01.py.
@@ -39,6 +40,10 @@ Notes :
 python3 hw01.py
 ```
 - Deal with any issues (syntax errors, runtime errors, or logical errors) and then continue.
+- Once the program compiles and you have succeeded in completing one part, run the tests to verify you are now passing some of them:
+```
+python3 hw01.py
+```
 
 ## Part 1
 
@@ -231,14 +236,7 @@ In addition to the hw01.py file, where you will make edits to complete the homew
 You are not to modify these files (you don’t even need to look at it). 
 These files are provided so you can see how many tests you have passed so far. If you pass all tests, then your code is complete.
 
-To run the tests, there are two things you can do:
-
-  * Go to the Tests icon on the left menu (looks like a triangular flask), and look for the test you want to run on the set of tests (the top level one runs them all). If you hover your mouse next to the test name, three play buttons will be displayed, the leftmost runs the test. Whe you do so, the output is shown on the lower-right window under the "TEST-RESULTS" tab.
-  * Alternatively, go to the terminal end run the following command (which will display all of the test output to the TERMINAL tab itself:
-  ```
-  pytest -s -v
-  ``` 
-
+To run the tests, you run a special python module called pytest. It is explained in the section: **Testing**.
 
 ### Grading criteria:
 
@@ -255,85 +253,236 @@ Operations
 ```
 The program:
 
-- Passes all 17 tests (or lose 5% per missed test).
+- Passes all 13 tests (or lose 5% per missed test).
 
 ### Submitting
 
+The way you submit is to make sure you've pushed all changes to your remote repository.
+I will collect all of your hw01 repositiories at the due date/time and can look into them and test them directly.
 
-I will collect all of your hw01 directory files at the due date/time so make sure it is complete and running by then.
+
+## Testing
+
+The word "test" when talking about programs, normally refers to the act of checking if it works correctly.
+The way this is done is to execute a tester program that calls your program and that checks for expected behavior.
+
+Note that, you only perform "testing" once the program actually compiles.
+
+So, the process should be:
+
+  1. add code that performs one small step.
+  2. execute the file and verify the program compiles and does not crash.
+     1. If it doesn't compile or if it crashes, fix the syntax errors and logic errors until it doesn't have any errors and the base program compiles (even if it is still incomplete)
+  3. Repeat until you have completed a "feature". Normally, a feature is one distinct step ot task in the full program. For this homework, it's each of the parts.
+  4. Once a feature is completed, test the program. You will see FAILURE for any tests that have to do with incomplete features, but you should see any feedback (and hints) about features you already worked on that fail. If they fail, check the logic and correct any differences with the expected results. If they pass, move on to the next feature. 
+
+For this class, you don't need to create or modify the test programs, but you should use them to check if the expected result is achieved.
+
+### How to test
+
+To test, follow these steps: 
+
+  1. open a terminal at the location of the file you want to test. 
+    1. In addition to the testable file (hw01.py, in this case), there should be a tester file (test_hw01.py).
+  2. run the following command: `python3.13 -m pytest -v -s`
+  3. Interpret the output to make changes in your hw01.py file.
 
 
+### How to Interpret the Test printout
 
-### Interpreting Test output
+Check the slides at the end of Lecture04. It has a visual explanation.
 
-Check the slides in Lecture05. It has a visual explanation.
-In the TEST RESULTS window, under a long block if information that starts with `Running pytest with args:`
-You might see something like this (I added errors on purpose for educational purposes)
+the way the tests are run is by executing the command: 
+`python3.13 -m pytest -v -s` in your terminal. 
+What this is saying is: Use python3.13 to run the pytest module (`-m pytest`) with verbose output (`-v`) and display output to the terminal (`-s`)
+If you don't have it installed, reach out to your instructor.
+
+Pytest executes a test file (`test_hw01.py`) that accompanies your homework python file (`hw01.py`) and it displays the results to the terminal window (It's best to make the window wide to read them easily).
+
+Imagine you've added the following code in the Part 1 section:
 
 ```
-collected 17 items
+# Part 1: Basic Operations
+# =============================================
+# Your code for part 1 under this line and before the print statements
+x=27
+y=1
+a=1.5
+b=7
+c=1
+result1 = (3 - 9*y)/(2*a)*(b-c)
+print("part 1: x =",x)
+print("Part 1: y =",y)
+print("Part 1: a = ",a)
+print("Part 1: b =",b)
+print("Part 1: c =",c)
+print("Part 1: result =", result1)
+# End of Part 1 ----------------------
+```
 
-test_hw01.py .........FF......                                           [100%]
+This has many issues: 
+
+  1. the value for c should be negative
+  2. the expression for result1 has many errors
+  3. the printout for x is NOT what is expected
+  4. the printout for a is NOT what is expected
+  5. the printout for c is NOT what is expected
+  6. the printout for result1 is NOT what is expected
+
+When you run the command: `python3.13 -m pytest -v -s`
+
+**Pytest printout**:
+
+This is the TOP part of what you'd see. 
+Note: For this explanation, ignore the terminal printout that goes beyond the right margin.
+
+```
+pfrank@Pablos-MBP hw01 % python3.13 -m pytest -v -s
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.4.1, pluggy-1.6.0 -- /usr/local/bin/python3.13
+cachedir: .pytest_cache
+rootdir: /Users/pfrank/Library/CloudStorage/Dropbox/Pablo/Smith/Academic/Teaching/CSC110/csc110-25f/homework/homework-solutions/hw01
+collected 13 items                                                             
+
+test_hw01.py::test1_x_printout FAILED
+test_hw01.py::test1_y_printout PASSED
+test_hw01.py::test1_a_printout FAILED
+test_hw01.py::test1_b_printout PASSED
+test_hw01.py::test1_c_printout PASSED
+test_hw01.py::test1_result1_printout FAILED
+test_hw01.py::test2_x_printout FAILED
+test_hw01.py::test2_y_printout FAILED
+test_hw01.py::test2_result2_printout FAILED
+test_hw01.py::test3_a_printout FAILED
+test_hw01.py::test3_b_printout FAILED
+test_hw01.py::test3_result3_printout FAILED
+test_hw01.py::test4_result4_printout FAILED
 
 =================================== FAILURES ===================================
-____________________________ test2_result2_printout ____________________________
 
-capsys = <_pytest.capture.CaptureFixture object at 0x105af2450>
-monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x105b64250>
-
-    def test2_result2_printout(capsys, monkeypatch):
-        global captured
-        import hw01  # Import the module here
-        # captured = capsys.readouterr()
->       assert "Part 2: result = 2025" in captured.out, "Tip: check the printout for part2's result is EXACT"
-E       AssertionError: Tip: check the printout for part2's result is EXACT
-E       assert 'Part 2: result = 2025' in 'Part 1: x = 27\nPart 1: y = 1\nPart 1: a = 1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 3.0\nPart 2: x = 5\nPart 2: y = -3\nPart 2: result = 2026\nPart 3: a = 100\nPart 3: b = 13\nPart 3: result = 7\nPart 4: result = 9\n'
-E        +  where 'Part 1: x = 27\nPart 1: y = 1\nPart 1: a = 1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 3.0\nPart 2: x = 5\nPart 2: y = -3\nPart 2: result = 2026\nPart 3: a = 100\nPart 3: b = 13\nPart 3: result = 7\nPart 4: result = 9\n' = CaptureResult(out='Part 1: x = 27\nPart 1: y = 1\nPart 1: a = 1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 3.0...t 2: y = -3\nPart 2: result = 2026\nPart 3: a = 100\nPart 3: b = 13\nPart 3: result = 7\nPart 4: result = 9\n', err='').out
-
-test_hw01.py:60: AssertionError
-________________________________ test2_result2 _________________________________
-
-    def test2_result2():
-        global captured
-        import hw01  # Import the module here
->       assert hw01.result2 == 2025, "Tip: Did you assign the value of result2 correctly?"
-E       AssertionError: Tip: Did you assign the value of result2 correctly?
-E       assert 2026 == 2025
-E        +  where 2026 = <module 'hw01' from '/Users/pfrank/Library/CloudStorage/Dropbox/Mac/Documents/csc110-s25/homework-solutions/hw01/hw01.py'>.result2
-
-test_hw01.py:66: AssertionError
-=========================== short test summary info ============================
-FAILED test_hw01.py::test2_result2_printout - AssertionError: Tip: check the ...
-FAILED test_hw01.py::test2_result2 - AssertionError: Tip: Did you assign the ...
-========================= 2 failed, 15 passed in 0.05s =========================
-Finished running tests!
 ```
 
-This is the summary:
-```
-collected 17 items
+To see how the test system helps, it;s a good idea to read on and look at the output for each specific test.
 
-test_hw01.py .........FF......                                           [100%]
-```
-It indicates there were 17 tests, of which 15 passed (".") and two failed ("F").
+Here is the output for the section related to the test called `test1_x_printout `
 
-Below that, there are blocks of output for every test that failed.
-
-### Failed test 1
-
-A test called "test2_result2" failed. Look for this line:
 ```
-E       AssertionError: Tip: check the printout for part2's result is EXACT
-```
-It's hard to see but, the following was expected: "Part 2: result = 2025" 
-but in the printout no such line is found.
-There is one that is close but incorrect: "Part 2: result = 2026"
+_______________________________ test1_x_printout _______________________________
 
-### Failed test 2
+capsys = <_pytest.capture.CaptureFixture object at 0x10966da90>
 
-For the second test, the information states the following:
+    def test1_x_printout(capsys):
+        hw01.main()
+        captured = capsys.readouterr()
+>       assert "Part 1: x = 27" in captured.out, "Tip: check the printout for x is EXACT"
+E       AssertionError: Tip: check the printout for x is EXACT
+E       assert 'Part 1: x = 27' in 'part 1: x = 27\nPart 1: y = 1.0\nPart 1: a =  1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 192.0\n'
+E        +  where 'part 1: x = 27\nPart 1: y = 1.0\nPart 1: a =  1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 192.0\n' = CaptureResult(out='part 1: x = 27\nPart 1: y = 1.0\nPart 1: a =  1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 192.0\n', err='').out
+
+test_hw01.py:8: AssertionError
 ```
-E       AssertionError: Tip: Did you assign the value of result2 correctly?
-E       assert 2026 == 2025
+
+It looks like a lot, but don't worry, it's less crazy than you think. 
+This tells  you which part of the test code (that you did not write) detects the error. 
+The issue is detected when running the `assert` statement, which just checks that something is happening. In this case, the expected outcome does not happen and that's why it complains. 
+
+The complaint is shown here:
+
 ```
-As you can see, these two are related... your calculation for result2 is off. Once you fix that, you should pass all tests.
+E       AssertionError: Tip: check the printout for x is EXACT
+E       assert 'Part 1: x = 27' in 'part 1: x = 27\nPart 1: y = 1.0\nPart 1: a =  1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 192.0\n'
+E        +  where 'part 1: x = 27\nPart 1: y = 1.0\nPart 1: a =  1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 192.0\n' = CaptureResult(out='part 1: x = 27\nPart 1: y = 1.0\nPart 1: a =  1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 192.0\n', err='').out
+```
+
+If you read carefully, it prints a hint: "Tip: check the printout for x is EXACT", and it also states where it fails. This part looks like a lot, but what the assert is doing is checking if the EXACT string `Part 1: x = 27` is in the printed output, which it displays as a long string (including explicit newlines as `\n`). If you look, it is true that `Part 1: x = 27` is NOT contained in that string... the reason is, the printout has `part 1: x = 27` where the "p" is not capitalized!!
+
+
+Here is the output for the section related to the test called `test1_a_printout `
+
+```
+_______________________________ test1_a_printout _______________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x109622ad0>
+
+    def test1_a_printout(capsys):
+        hw01.main()
+        captured = capsys.readouterr()
+>       assert "Part 1: a = 1.5" in captured.out, "Tip: check the printout for a is EXACT"
+E       AssertionError: Tip: check the printout for a is EXACT
+E       assert 'Part 1: a = 1.5' in 'part 1: x = 27\nPart 1: y = 1.0\nPart 1: a =  1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 192.0\n'
+E        +  where 'part 1: x = 27\nPart 1: y = 1.0\nPart 1: a =  1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 192.0\n' = CaptureResult(out='part 1: x = 27\nPart 1: y = 1.0\nPart 1: a =  1.5\nPart 1: b = 7\nPart 1: c = -1\nPart 1: result = 192.0\n', err='').out
+
+test_hw01.py:18: AssertionError
+
+```
+
+Here the error is that `Part 1: a = 1.5` is not in the printout. And this happens because `Part 1: a =  1.5` is WRONG!! the reason is: there is an extra space after the equal sign.
+
+
+After you correct these errors, 
+
+```
+x=27
+y=1.0
+a=1.5
+b=7
+c=-1
+result1 = (3*x - 9*y)/(2*a)*(b-c)
+print("Part 1: x =",x)
+print("Part 1: y =",y)
+print("Part 1: a =",a)
+print("Part 1: b =",b)
+print("Part 1: c =",c)
+print("Part 1: result =", result1)
+```
+
+you can see the output change:
+
+```
+test_hw01.py::test1_x_printout PASSED
+test_hw01.py::test1_y_printout PASSED
+test_hw01.py::test1_a_printout PASSED
+test_hw01.py::test1_b_printout PASSED
+test_hw01.py::test1_c_printout PASSED
+test_hw01.py::test1_result1_printout FAILED
+test_hw01.py::test2_x_printout FAILED
+test_hw01.py::test2_y_printout FAILED
+test_hw01.py::test2_result2_printout FAILED
+test_hw01.py::test3_a_printout FAILED
+test_hw01.py::test3_b_printout FAILED
+test_hw01.py::test3_result3_printout FAILED
+test_hw01.py::test4_result4_printout FAILED
+```
+
+Now you continue adding code and checking the errors for each test until you pass all the tests.
+
+
+## If every test passes
+
+You should see something like this:
+
+```
+pfrank@Pablos-MBP hw01 % pytest -s -v                                                             
+zsh: /usr/local/bin/pytest: bad interpreter: /usr/local/opt/python@3.11/bin/python3.11: no such file or directory
+====================================== test session starts =======================================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0 -- /usr/local/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pfrank/Library/CloudStorage/Dropbox/Pablo/Smith/Academic/Teaching/CSC110/csc110-25f/homework/homework-solutions/hw01
+collected 13 items                                                                               
+
+test_hw01.py::test1_x_printout PASSED
+test_hw01.py::test1_y_printout PASSED
+test_hw01.py::test1_a_printout PASSED
+test_hw01.py::test1_b_printout PASSED
+test_hw01.py::test1_c_printout PASSED
+test_hw01.py::test1_result1_printout PASSED
+test_hw01.py::test2_x_printout PASSED
+test_hw01.py::test2_y_printout PASSED
+test_hw01.py::test2_result2_printout PASSED
+test_hw01.py::test3_a_printout PASSED
+test_hw01.py::test3_b_printout PASSED
+test_hw01.py::test3_result3_printout PASSED
+test_hw01.py::test4_result4_printout PASSED
+
+======================================= 13 passed in 0.08s =======================================
+```
