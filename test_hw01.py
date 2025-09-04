@@ -1,4 +1,3 @@
-import pytest
 import hw01  # Import the module here
 import sys
 
