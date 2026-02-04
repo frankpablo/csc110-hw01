@@ -1,21 +1,4 @@
----
-title: |
-  \vspace{-2cm} CSC 110\
-  CSC110 Intro to CS through programming\
-  Homework 01
-subtitle: |
-  Spring 2025
-geometry: margin=2cm 
-header-includes: |
-  \setlength{\headsep}{1cm}
-  \hypersetup{colorlinks=true,
-    urlcolor=[RGB]{6,69,173},
-    linkcolor=[RGB]{6,69,173}}  
-  \usepackage{color}  
-output:
-  pdf_document:
-    highlight-style: monochrome
----
+# Homework 01
 
 ## Variables and Operations
 
@@ -35,7 +18,7 @@ Then, you can start working on the Homework.
 Notes :
 
 - All your editing will happen in the file called hw01.py.
-- As you advance, make small edits and then run the program, in a Bash shell, with instruction: 
+- As you advance, make small edits and then run the program, in a Bash shell, with instruction:
 ```
 python3 hw01.py
 ```
@@ -221,7 +204,7 @@ comments indicating where to add your code. Remember, “comments”... are text
 
 ## Expected Output
 You execute your program in Thonny or on the terminal.
-In the terminal, you can run it with: `python3.13 hw01.py`
+In the terminal, you can run it with: `python3 hw01.py`
 
 This is what the output should look like when you execute your program:
 
@@ -245,8 +228,8 @@ Part 4: result = 9
 ## Tests and checking your work
 
 
-In addition to the hw01.py file, where you will make edits to complete the homework, you might see additional python files called test_&lt;something&gt;.py. 
-You are not to modify these files (you don’t even need to look at it). 
+In addition to the hw01.py file, where you will make edits to complete the homework, you might see additional python files called test_&lt;something&gt;.py.
+You are not to modify these files (you don’t even need to look at it).
 These files are provided so you can see how many tests you have passed so far. If you pass all tests, then your code is complete.
 
 To run the tests, you run a special python module called pytest. It is explained in the section: **Testing**.
@@ -254,14 +237,18 @@ To run the tests, you run a special python module called pytest. It is explained
 
 ### Grading criteria:
 
-The submission:
+Note: before submitting, you should check all the boxes that you actually completed like this:
 
-- runs without syntax errors (or -50%)
-- adds a few small but informative comments (or -10%)
+  - [x] this is a checked box
 
-The program:
+The submission (check boxes after you complete each step):
 
-- Passes all 13 tests (or lose 5% per missed test).
+  - [ ] you added your name to the top comments of the python file
+  - [ ] runs without syntax errors (or -50%)
+  - [ ] adds a few small but informative comments (or -10%)
+  - [ ] Passes all tests (or lose 5% per missed test). If you do not pass all tests, do not check this box
+  - [ ] You checked the correct boxes
+
 
 ### Submitting
 
@@ -282,17 +269,17 @@ So, the process should be:
   2. execute the file and verify the program compiles and does not crash.
      1. If it doesn't compile or if it crashes, fix the syntax errors and logic errors until it doesn't have any errors and the base program compiles (even if it is still incomplete)
   3. Repeat until you have completed a "feature". Normally, a feature is one distinct step ot task in the full program. For this homework, it's each of the parts.
-  4. Once a feature is completed, test the program. You will see FAILURE for any tests that have to do with incomplete features, but you should see any feedback (and hints) about features you already worked on that fail. If they fail, check the logic and correct any differences with the expected results. If they pass, move on to the next feature. 
+  4. Once a feature is completed, test the program. You will see FAILURE for any tests that have to do with incomplete features, but you should see any feedback (and hints) about features you already worked on that fail. If they fail, check the logic and correct any differences with the expected results. If they pass, move on to the next feature.
 
 For this class, you don't need to create or modify the test programs, but you should use them to check if the expected result is achieved.
 
 ### How to test
 
-To test, follow these steps: 
+To test, follow these steps:
 
-  1. open a terminal at the location of the file you want to test. 
+  1. open a terminal at the location of the file you want to test.
     1. In addition to the testable file (hw01.py, in this case), there should be a tester file (test_hw01.py).
-  2. run the following command: `python3.13 -m pytest -v -s`
+  2. run the following command: `python3 -m pytest -v -s`
   3. Interpret the output to make changes in your hw01.py file.
 
 
@@ -300,8 +287,8 @@ To test, follow these steps:
 
 Check the slides at the end of Lecture04. It has a visual explanation.
 
-the way the tests are run is by executing the command: 
-`python3.13 -m pytest -v -s` in your terminal. 
+the way the tests are run is by executing the command:
+`python3 -m pytest -v -s` in your terminal.
 What this is saying is: Use python3.13 to run the pytest module (`-m pytest`) with verbose output (`-v`) and display output to the terminal (`-s`)
 If you don't have it installed, reach out to your instructor.
 
@@ -328,7 +315,7 @@ print("Part 1: result =", result1)
 # End of Part 1 ----------------------
 ```
 
-This has many issues: 
+This has many issues:
 
   1. the value for c should be negative
   2. the expression for result1 has many errors
@@ -337,11 +324,11 @@ This has many issues:
   5. the printout for c is NOT what is expected
   6. the printout for result1 is NOT what is expected
 
-When you run the command: `python3.13 -m pytest -v -s`
+When you run the command: `python3 -m pytest -v -s`
 
 **Pytest printout**:
 
-This is the TOP part of what you'd see. 
+This is the TOP part of what you'd see.
 Note: For this explanation, ignore the terminal printout that goes beyond the right margin.
 
 ```
@@ -350,7 +337,7 @@ pfrank@Pablos-MBP hw01 % python3.13 -m pytest -v -s
 platform darwin -- Python 3.13.1, pytest-8.4.1, pluggy-1.6.0 -- /usr/local/bin/python3.13
 cachedir: .pytest_cache
 rootdir: /Users/pfrank/Library/CloudStorage/Dropbox/Pablo/Smith/Academic/Teaching/CSC110/csc110-25f/homework/homework-solutions/hw01
-collected 13 items                                                             
+collected 13 items
 
 test_hw01.py::test1_x_printout FAILED
 test_hw01.py::test1_y_printout PASSED
@@ -390,9 +377,9 @@ E        +  where 'part 1: x = 27\nPart 1: y = 1.0\nPart 1: a =  1.5\nPart 1: b 
 test_hw01.py:8: AssertionError
 ```
 
-It looks like a lot, but don't worry, it's less crazy than you think. 
-This tells  you which part of the test code (that you did not write) detects the error. 
-The issue is detected when running the `assert` statement, which just checks that something is happening. In this case, the expected outcome does not happen and that's why it complains. 
+It looks like a lot, but don't worry, it's less crazy than you think.
+This tells  you which part of the test code (that you did not write) detects the error.
+The issue is detected when running the `assert` statement, which just checks that something is happening. In this case, the expected outcome does not happen and that's why it complains.
 
 The complaint is shown here:
 
@@ -427,7 +414,7 @@ test_hw01.py:18: AssertionError
 Here the error is that `Part 1: a = 1.5` is not in the printout. And this happens because `Part 1: a =  1.5` is WRONG!! the reason is: there is an extra space after the equal sign.
 
 
-After you correct these errors, 
+After you correct these errors,
 
 ```
 x=27
@@ -470,13 +457,13 @@ Now you continue adding code and checking the errors for each test until you pas
 You should see something like this:
 
 ```
-pfrank@Pablos-MBP hw01 % pytest -s -v                                                             
+pfrank@Pablos-MBP hw01 % pytest -s -v
 zsh: /usr/local/bin/pytest: bad interpreter: /usr/local/opt/python@3.11/bin/python3.11: no such file or directory
 ====================================== test session starts =======================================
 platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0 -- /usr/local/bin/python3
 cachedir: .pytest_cache
 rootdir: /Users/pfrank/Library/CloudStorage/Dropbox/Pablo/Smith/Academic/Teaching/CSC110/csc110-25f/homework/homework-solutions/hw01
-collected 13 items                                                                               
+collected 13 items
 
 test_hw01.py::test1_x_printout PASSED
 test_hw01.py::test1_y_printout PASSED
